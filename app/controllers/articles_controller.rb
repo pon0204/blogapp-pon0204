@@ -34,6 +34,12 @@ def update
    end
 end
 
+def destroy
+    article = Article.find(params[:id]) #記事のid取得
+    article.destroy! #記事の削除 !はデストロイ失敗した時にエラーがでて処理が止まる。
+    redirect_to root_path, notice: '削除に成功しました' #削除後、記事一覧に飛ぶ
+end
+
 private
 def article_params  #フォームの入力内容が回ってくる
     params.require(:article).permit(:title, :content)
