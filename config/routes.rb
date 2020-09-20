@@ -8,3 +8,5 @@ end
 # get 記事の表示
 # put 記事の更新
 # post 記事の作成
+# only以降はいらない onlyはこのアクションしか使えませんの意味
+#resources :articles, only: [:show, :new, :create, :edit, :update, :destroy]  アークティルパスのアクションの指定 updateでputとpatchのパス追加 destroyでdeleteパス追加
