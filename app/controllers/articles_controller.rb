@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
    before_action :set_article, only: [:show, :edit, :update] #全てのアクション前で実施
+   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] #ログインしていないと使用できない様になる
 
     def index
         @articles = Article.all #記事の中身を配列にして代入
