@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 root to: 'articles#index' #記事一覧の表示
 
-resources :articles, only: [:show, :new, :create, :edit, :update, :destroy]  #アークティルパスのアクションの指定 updateでputとpatchのパス追加 destroyでdeleteパス追加
+resources :articles
 end
 
 # get 記事の表示

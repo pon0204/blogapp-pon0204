@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
    before_action :set_article, only: [:show, :edit, :update] #全てのアクション前で実施
 
     def index
-        @articles = Article #記事の中身を配列にして代入
+        @articles = Article.all #記事の中身を配列にして代入
     end
     def show
     end
