@@ -28,4 +28,3 @@ class Article < ApplicationRecord
          #100文字以下であれば #コンテントカラムにたいしてエラー  #errors.addは自分でエラーを追加している。
        end
     end
-end

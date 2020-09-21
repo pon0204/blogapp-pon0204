@@ -6,6 +6,7 @@
       %p cohki0305
       %p= @article.display_created_at
       / article.rbのメソッドを実行 時間の表示
+  - if user_signed_in?
     .article_detail_actions
       .dropdown
         = image_tag 'actions.svg', class: 'dropbtn'
