@@ -1,21 +1,22 @@
 class ArticlesController < ApplicationController
    before_action :set_article, only: [:show, :edit, :update] #全てのアクション前で実施
-   
+
     def index
-        @articles = Article.all #記事の中身を配列にして代入
+        @articles = Article #記事の中身を配列にして代入
     end
     def show
     end
 
     def new
         @article = Article.new
+
     end
-    
+
 def create
     @article = Article.new(article_params)
     if @article.save
     redirect_to article_path(@article),notice: '保存できたよ'
-    else 
+    else
         flash.now[:error] = '保存に失敗しました'
         render :new
     end
