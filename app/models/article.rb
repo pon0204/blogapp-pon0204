@@ -3,10 +3,15 @@
 # Table name: articles
 #
 #  id         :integer          not null, primary key
-#  content    :text
-#  title      :string
+#  content    :text             not null
+#  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer          not null
+#
+# Indexes
+#
+#  index_articles_on_user_id  (user_id)
 #
 class Article < ApplicationRecord
     validates :title, presence: true
@@ -17,8 +22,15 @@ class Article < ApplicationRecord
     validates :content, presence: true #文字を入力していないとエラー
     validates :content, uniqueness: true  #一意であるかを確認する この場合は記事の内容 普段はメアドやユーザー名
     validate :validate_title_and_content_length
+
+    belongs_to :user #所属する意味 userに紐づいている 単数形
+    
     def display_created_at
         I18n.l(self.created_at, format: :default) #jaymlのデフォルト時間の表示
+    end
+
+    def author_name
+      user.display_name
     end
 
     private
