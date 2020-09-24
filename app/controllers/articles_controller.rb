@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
         @articles = Article.all #記事の中身を配列にして代入
     end
     def show
+       @comments = @article.comments
     end
 
     def new

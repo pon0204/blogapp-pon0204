@@ -23,6 +23,7 @@ class Article < ApplicationRecord
     validates :content, uniqueness: true  #一意であるかを確認する この場合は記事の内容 普段はメアドやユーザー名
     validate :validate_title_and_content_length
 
+    has_many :comments, dependent: :destroy#複数形
     belongs_to :user #所属する意味 userに紐づいている 単数形
     
     def display_created_at
