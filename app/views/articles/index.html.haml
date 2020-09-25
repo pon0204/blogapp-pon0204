@@ -2,7 +2,7 @@
   = render 'tabs'
   / アンダーバーのファイル名を指定して、renderで表示
   - @articles.each do|article|
-    = render 'article',article: article
+    = render '/commons/article',article: article
     / article: articleでeachの情報を部分テンプレートに渡している
   = link_to new_article_path do
     .float_btn
