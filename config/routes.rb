@@ -6,6 +6,8 @@ root to: 'articles#index' #記事一覧の表示
 resources :articles do
   resources :comments, only: [:new, :create]
   end
+
+  resource :profile, only: [:show, :edit, :update]
 end
 
 # get 記事の表示

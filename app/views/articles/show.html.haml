@@ -1,7 +1,7 @@
 .article
   %h1.article_title= @article.title
   .article_detail
-    = image_tag 'default-avatar.png'
+    = image_tag @article.user.avatar_image
     %div
       -# - if @article.user.present? #ユーザー登録されていれば
       %p= @article.author_name #ユーザー名を表示 user.rbのメソッド 
@@ -31,3 +31,4 @@
   =link_to new_article_comment_path(@article) do 
     .btn-secondary
       コメントを追加
+      
