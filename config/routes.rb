@@ -5,9 +5,14 @@ root to: 'articles#index' #記事一覧の表示
 
 resources :articles do
   resources :comments, only: [:new, :create]
+
+  resource :like, only: [:create, :destroy] #idを使用しなくても削除出来るから単数形にしてる
   end
 
   resource :profile, only: [:show, :edit, :update]
+
+  resources :favorites, only: [:index]
+
 end
 
 # get 記事の表示

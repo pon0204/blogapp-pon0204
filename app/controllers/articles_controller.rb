@@ -45,7 +45,7 @@ end
 
 private
 def article_params  #フォームの入力内容が回ってくる
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :eyecatch)
 end
 
 def set_article   #以下を各実行前に処理
