@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  remember_created_at    :datetime
@@ -23,13 +23,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles, dependent: :destroy #複数形記事と紐付け userが削除された場合、記事も削除する
+  has_many :likes,dependent: :destroy
   has_one :profile, dependent: :destroy  #一つの意味 プロフィールを所有している
-  
+  has_many :favorite_articles, through: :likes, source: :article  #throughをすると中間テーブルを通して記事を取得する。 sourceでfavoriteにarticleを当てている自分がいいねした記事だけを取得する　
 
   delegate :birthday, :age, :gender, to: :profile, allow_nil: true  #メソッドを定義しなくても、使える様になる プロフィールモデルからひっぱてくる allow_nilでぼっち演算子
+
   
   def has_written?(article)
     articles.exists?(id: article.id)
+  end
+
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
   end
 
   def display_name
