@@ -42,13 +42,13 @@ class User < ApplicationRecord
     profile&.nickname || self.email.split('@').first  #ぼっち演算子 nillじゃ無いときに左実行 nillなときは右実行
   end
 
-  # def birthday
-  #     profile&.birthday
-  # end
+  def birthday
+      profile&.birthday
+  end
 
-  # def gender
-  #   profile&.gender
-  # end
+  def gender
+    profile&.gender
+  end
 
     def prepare_profile
       profile || build_profile #もしカレントユーザーのプロフィールがあったら取得 ||はオアーの分岐

@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
     def index
         @articles = Article.all #記事の中身を配列にして代入
     end
+
     def show
        @comments = @article.comments
     end
@@ -14,7 +15,7 @@ class ArticlesController < ApplicationController
 
     end
 def create
-    @article = current_user.articles.build(article_params) #ログインユーザーの空の箱を作っている
+    @article = current_user.articles.build(article_params) #フォームの入力内容を@articleに代入
     if @article.save
     redirect_to article_path(@article),notice: '保存できたよ'
     else
