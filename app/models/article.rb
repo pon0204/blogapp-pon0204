@@ -28,16 +28,4 @@ class Article < ApplicationRecord
     has_many :likes, dependent: :destroy
     belongs_to :user #所属する意味 userに紐づいている 単数形
     
-    def display_created_at
-        I18n.l(self.created_at, format: :default) #jaymlのデフォルト時間の表示
-    end
-
-    def author_name
-      user.display_name
-    end
-
-def like_count
-  likes.count #countはactiverecordの機能
-end
-
     end
