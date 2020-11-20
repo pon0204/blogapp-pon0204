@@ -6,9 +6,9 @@ root to: 'articles#index' #記事一覧の表示
 resource :timeline, only:[:show]
 
 resources :articles do
-  resources :comments, only: [:new, :create]
+  resources :comments, only: [:index, :new, :create]
 
-  resource :like, only: [:create, :destroy] #idを使用しなくても削除出来るから単数形にしてる
+  resource :like, only: [:show ,:create, :destroy] #idを使用しなくても削除出来るから単数形にしてる
   end
 
   resources :accounts, only:[:show] do
