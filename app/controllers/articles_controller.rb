@@ -7,12 +7,11 @@ class ArticlesController < ApplicationController
     end
 
     def show
-       @comments = @article.comments
     end
 
     def new
         @article = current_user.articles.build  #ログインしているユーザーを取得し、空の箱を作っている
-
+    
     end
 def create
     @article = current_user.articles.build(article_params) #フォームの入力内容を@articleに代入
