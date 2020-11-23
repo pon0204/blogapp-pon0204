@@ -10,6 +10,7 @@
 @import 'profile';
 @import 'actiontext';
 @import 'trix/dist/trix.css';
+@import 'footer';
 html {
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -20,7 +21,7 @@ html {
   height: 100%;
 }
 
-*,
+
 *:before,
 *:after {
   box-sizing: border-box;
