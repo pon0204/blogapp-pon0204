@@ -1,5 +1,5 @@
-class ProfilesController < ApplicationController
-    before_action :authenticate_user! #ログインしている人だけ
+class Apps::ProfilesController < Apps::ApplicationController
+    
     
     def show
     @profile = current_user.profile #user.rbにてhas?oneをしている為取得できている

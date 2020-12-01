@@ -7,23 +7,31 @@ Rails.application.routes.draw do
   
 root to: 'articles#index' #記事一覧の表示
 
-resource :timeline, only:[:show]
 
-resources :articles do
-  resources :comments, only: [:index, :new, :create]
 
-  resource :like, only: [:show ,:create, :destroy] #idを使用しなくても削除出来るから単数形にしてる
-  end
+resources :articles 
 
   resources :accounts, only:[:show] do
     resources :follows, only: [:create]
     resources :unfollows, only: [:create]
   end
 
+
+scope module: :apps do
+  resource :timeline, only:[:show]
   resource :profile, only: [:show, :edit, :update]
-
   resources :favorites, only: [:index]
+end
 
+
+
+
+  namespace :api, defaults: {format: :json} do
+    scope '/articles/:article_id' do
+      resources :comments, only: [:index, :new, :create]
+      resource :like, only: [:show ,:create, :destroy] #idを使用しなくても削除出来るから単数形にしてる
+    end
+  end
 end
 
 
