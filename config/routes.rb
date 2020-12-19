@@ -23,9 +23,6 @@ scope module: :apps do
   resources :favorites, only: [:index]
 end
 
-
-
-
   namespace :api, defaults: {format: :json} do
     scope '/articles/:article_id' do
       resources :comments, only: [:index, :new, :create]
