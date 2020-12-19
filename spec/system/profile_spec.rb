@@ -15,3 +15,5 @@ RSpec.describe 'Profile', type: :system do
     end
   end
 end
+
+#bundle exec rspec spec/system/profile_spec.rb

@@ -1,6 +1,5 @@
 class Apps::ProfilesController < Apps::ApplicationController
     
-    
     def show
     @profile = current_user.profile #user.rbにてhas?oneをしている為取得できている
     end
@@ -20,7 +19,7 @@ class Apps::ProfilesController < Apps::ApplicationController
       if @profile.save
           redirect_to profile_path, notice: 'プロフィール更新!'
       else
-        falsh.now[:error] = '更新出来ませんでした'
+        flash.now[:error] = '更新出来ませんでした'
         render :edit
       end
     end

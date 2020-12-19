@@ -23,9 +23,6 @@ scope module: :apps do
   resources :favorites, only: [:index]
 end
 
-
-
-
   namespace :api, defaults: {format: :json} do
     scope '/articles/:article_id' do
       resources :comments, only: [:index, :new, :create]
@@ -41,3 +38,8 @@ end
 # post 記事の作成
 # only以降はいらない onlyはこのアクションしか使えませんの意味
 #resources :articles, only: [:show, :new, :create, :edit, :update, :destroy]  アークティルパスのアクションの指定 updateでputとpatchのパス追加 destroyでdeleteパス追加
+# ```
+#  ls ~/.ssh/ 
+#  ```
+#  ssh-add -K ~/.ssh/pon0204-GitHub
+#  ssh -T git@github.com
